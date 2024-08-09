@@ -3,7 +3,7 @@ import mysql.connector
 import pandas as pd
 
 # mydb = mysql.connector.connect(
-#     host="localhost:3306",
+#     host="localhost",
 #     user="admin",
 #     password="admin123",
 #     database="crud_new"
