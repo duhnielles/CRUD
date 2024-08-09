@@ -2,15 +2,15 @@ import streamlit as st
 import mysql.connector
 import pandas as pd
 
-mydb = mysql.connector.connect(
-    host="127.0.0.1",
-    user="root",
-    password="admin123",
-    database="crud_new"
-)
+# mydb = mysql.connector.connect(
+#     host="127.0.0.1",
+#     user="root",
+#     password="admin123",
+#     database="crud_new"
+# )
 
-mycursor=mydb.cursor()
-print("Connection established")
+# mycursor=mydb.cursor()
+# print("Connection established")
 
 # Function to establish a database connection using secrets
 def get_database_connection():
@@ -31,10 +31,12 @@ def get_database_connection():
 def fetch_data():
     connection = get_database_connection()
     if connection:
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM phonebook")
-        data = cursor.fetchall()
-        connection.close()
+        try:
+            cursor = connection.cursor()
+            cursor.execute("SELECT * FROM phonebook")
+            data = cursor.fetchall()
+        finally:
+            connection.close()
         return data
     else:
         return []
