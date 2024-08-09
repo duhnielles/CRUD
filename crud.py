@@ -27,6 +27,7 @@ def get_database_connection():
         st.stop()  # Halt execution
     return None
 
+
 # Function to fetch data from the database
 def fetch_data():
     connection = get_database_connection()
