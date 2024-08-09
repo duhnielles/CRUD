@@ -2,6 +2,16 @@ import streamlit as st
 import mysql.connector
 import pandas as pd
 
+mydb = mysql.connector.connect(
+    host="127.0.0.1",
+    user="root",
+    password="admin123",
+    database="crud_new"
+)
+
+mycursor=mydb.cursor()
+print("Connection established")
+
 # Function to establish a database connection using secrets
 def get_database_connection():
     try:
